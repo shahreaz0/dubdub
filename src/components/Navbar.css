@@ -1,0 +1,21 @@
+@media only screen and (max-width: 500px) {
+  .uk-navbar-left {
+    width: 100%;
+    justify-content: center;
+    height: 100%;
+  }
+
+  .uk-navbar-nav {
+    flex-direction: column;
+  }
+
+  .uk-navbar-left li {
+    margin: 0.4rem;
+    height: 30px;
+    text-align: center;
+  }
+  .uk-navbar-left a {
+    display: inline !important;
+    height: 20px;
+  }
+}
