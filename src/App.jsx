@@ -9,6 +9,8 @@ const App = () => {
     <div className="App">
       <Navbar />
       <p>Rick and Morty</p>
+
+      <div id="my-id"></div>
     </div>
   );
 };
