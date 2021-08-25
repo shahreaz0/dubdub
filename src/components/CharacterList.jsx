@@ -5,7 +5,7 @@ import "./CharacterList.css";
 
 const CharacterList = (props) => {
 	return (
-		<div className="CharacterList">
+		<div className="m-lg">
 			<Row gutter={[24, 16]}>
 				<Col xs={24} md={6} lg={6}>
 					<div className="side-text">Characters</div>

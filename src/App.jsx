@@ -5,6 +5,7 @@ import "./App.css";
 //components
 import Navbar from "./components/Navbar";
 import CharacterList from "./components/CharacterList";
+import EpisodeList from "./components/EpisodeList";
 
 const App = () => {
   return (
@@ -13,6 +14,7 @@ const App = () => {
       <Switch>
         <Route exact path="/" />
         <Route exact path="/characters" component={CharacterList} />
+        <Route exact path="/episodes" component={EpisodeList} />
       </Switch>
     </div>
   );

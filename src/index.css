@@ -8,3 +8,8 @@ body {
 code {
   font-family: "Consolas", monospace;
 }
+
+/* Utility Classes */
+.m-lg {
+  margin: 1rem;
+}

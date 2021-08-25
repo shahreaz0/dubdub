@@ -18,7 +18,7 @@ const Navbar = (props) => {
 				mode="horizontal"
 			>
 				<Menu.Item key="one">
-					<Link to="/">Episodes</Link>
+					<Link to="/episodes">Episodes</Link>
 				</Menu.Item>
 				<Menu.Item key="two">
 					<Link to="/characters">Characters</Link>
