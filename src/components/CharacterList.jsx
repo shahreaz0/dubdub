@@ -1,9 +1,23 @@
 import React, { useState } from "react";
+import { useQuery, gql } from "@apollo/client";
 import { Row, Col, Card } from "antd";
 const { Meta } = Card;
 import "./CharacterList.css";
 
+const ALL_CHARACTERS = gql`
+	{
+		characters {
+			results {
+				name
+				image
+			}
+		}
+	}
+`;
+
 const CharacterList = (props) => {
+	const { loading, error, data } = useQuery(ALL_CHARACTERS);
+	console.log(data);
 	return (
 		<div className="m-lg">
 			<Row gutter={[24, 16]}>
