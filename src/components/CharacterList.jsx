@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useQuery, gql } from "@apollo/client";
 import { Row, Col, Card } from "antd";
+import { Link } from "react-router-dom";
 const { Meta } = Card;
 import "./CharacterList.css";
 
@@ -10,6 +11,7 @@ const ALL_CHARACTERS = gql`
 			results {
 				name
 				image
+				id
 			}
 		}
 	}
@@ -17,7 +19,33 @@ const ALL_CHARACTERS = gql`
 
 const CharacterList = (props) => {
 	const { loading, error, data } = useQuery(ALL_CHARACTERS);
-	console.log(data);
+
+	if (loading)
+		return (
+			<div className="loader">
+				<div className="lds-ripple">
+					<div></div>
+					<div></div>
+				</div>
+			</div>
+		);
+	if (error) return <p>Error :(</p>;
+
+	const { results } = data.characters;
+	const cards = results.map((card, key) => (
+		<Col xs={24} sm={8} lg={6} key={key}>
+			<Link to={`/${card.id}`}>
+				<Card
+					loading={loading}
+					hoverable
+					cover={<img alt={card.name} src={card.image} />}
+				>
+					<Meta title={card.name} />
+				</Card>
+			</Link>
+		</Col>
+	));
+
 	return (
 		<div className="m-lg">
 			<Row gutter={[24, 16]}>
@@ -26,60 +54,7 @@ const CharacterList = (props) => {
 				</Col>
 
 				<Col xs={24} md={18} lg={18}>
-					<Row gutter={[24, 16]}>
-						<Col xs={24} sm={8} lg={6}>
-							<Card
-								hoverable
-								cover={
-									<img
-										alt="example"
-										src="https://rickandmortyapi.com/api/character/avatar/1.jpeg"
-									/>
-								}
-							>
-								<Meta title="Rick Sanchez" />
-							</Card>
-						</Col>
-						<Col xs={24} sm={8} lg={6}>
-							<Card
-								hoverable
-								cover={
-									<img
-										alt="example"
-										src="https://rickandmortyapi.com/api/character/avatar/2.jpeg"
-									/>
-								}
-							>
-								<Meta title="Morty Smith" />
-							</Card>
-						</Col>
-						<Col xs={24} sm={8} lg={6}>
-							<Card
-								hoverable
-								cover={
-									<img
-										alt="example"
-										src="https://rickandmortyapi.com/api/character/avatar/3.jpeg"
-									/>
-								}
-							>
-								<Meta title="Summer Smith" />
-							</Card>
-						</Col>
-						<Col xs={24} sm={8} lg={6}>
-							<Card
-								hoverable
-								cover={
-									<img
-										alt="example"
-										src="https://rickandmortyapi.com/api/character/avatar/4.jpeg"
-									/>
-								}
-							>
-								<Meta title="Beth Smith" />
-							</Card>
-						</Col>
-					</Row>
+					<Row gutter={[24, 16]}>{cards}</Row>
 				</Col>
 			</Row>
 		</div>
