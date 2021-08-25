@@ -1,4 +1,5 @@
 import React from "react";
+import { Switch, Route } from "react-router-dom";
 import "./App.css";
 
 //components
@@ -9,7 +10,10 @@ const App = () => {
   return (
     <div className="App">
       <Navbar />
-      <CharacterList />
+      <Switch>
+        <Route exact path="/" />
+        <Route exact path="/characters" component={CharacterList} />
+      </Switch>
     </div>
   );
 };

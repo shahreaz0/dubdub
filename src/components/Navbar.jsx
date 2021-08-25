@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import { Menu } from "antd";
 import "./Navbar.css";
 
@@ -17,13 +18,13 @@ const Navbar = (props) => {
 				mode="horizontal"
 			>
 				<Menu.Item key="one">
-					<a href="#">Episodes</a>
+					<Link to="/">Episodes</Link>
 				</Menu.Item>
 				<Menu.Item key="two">
-					<a href="#">Characters</a>
+					<Link to="/characters">Characters</Link>
 				</Menu.Item>
 				<Menu.Item key="three">
-					<a href="#">Location</a>
+					<Link to="/">Location</Link>
 				</Menu.Item>
 			</Menu>
 		</div>
