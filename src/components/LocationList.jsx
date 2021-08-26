@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Row, Col, Card } from "antd";
 const { Meta } = Card;
 
@@ -11,7 +11,7 @@ const episodeList = (props) => {
 				</Col>
 
 				<Col xs={24} md={18} lg={18}>
-					<Row gutter={[24, 16]}>
+					<Row gutter={[24, 16]} className="cards">
 						<Col xs={24} sm={8} lg={6}>
 							<Card hoverable>
 								<Meta

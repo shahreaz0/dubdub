@@ -1,9 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import { useQuery, gql } from "@apollo/client";
 import { Row, Col, Card } from "antd";
 import { Link } from "react-router-dom";
 const { Meta } = Card;
-import "./CharacterList.css";
 
 const ALL_CHARACTERS = gql`
 	{
@@ -54,7 +53,9 @@ const CharacterList = (props) => {
 				</Col>
 
 				<Col xs={24} md={18} lg={18}>
-					<Row gutter={[24, 16]}>{cards}</Row>
+					<Row gutter={[24, 16]} className="cards">
+						{cards}
+					</Row>
 				</Col>
 			</Row>
 		</div>

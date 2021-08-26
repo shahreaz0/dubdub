@@ -10,7 +10,7 @@ import App from "./App";
 
 // apollo client
 const client = new ApolloClient({
-	uri: "https://cors-anywhere.herokuapp.com/https://rickandmortyapi.com/graphql",
+	uri: "https://rickandmortyapi.com/graphql",
 	cache: new InMemoryCache(),
 });
 
