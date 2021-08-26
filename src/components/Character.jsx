@@ -1,7 +1,6 @@
 import React from "react";
 import { useQuery, gql } from "@apollo/client";
-import { Row, Col, Card, Image, Descriptions } from "antd";
-const { Meta } = Card;
+import { Row, Col, Card, Image } from "antd";
 import "./Character.css";
 
 const Character = (props) => {
@@ -42,43 +41,51 @@ const Character = (props) => {
 
 	return (
 		<div className="m-lg">
-			<Row>
+			<Row gutter={[8, 8]}>
 				<Col xs={24} sm={8} md={6} lg={6}>
 					<Image src={image} height="100%" width="100%" />
 				</Col>
 				<Col xs={24} sm={16} md={18} lg={18} className="character-box">
-					<Card>
-						<Descriptions
-							title={name}
-							column={{
-								xxl: 2,
-								xl: 2,
-								lg: 2,
-								md: 2,
-								sm: 2,
-								xs: 1,
-							}}
-						>
-							<Descriptions.Item label="Status">
-								{status}
-							</Descriptions.Item>
-							<Descriptions.Item label="Species">
-								{species}
-							</Descriptions.Item>
-							<Descriptions.Item label="Type">
-								{type || "Unknown"}
-							</Descriptions.Item>
-							<Descriptions.Item label="Gender">
-								{gender}
-							</Descriptions.Item>
-							<Descriptions.Item label="Origin">
-								{origin.name}
-							</Descriptions.Item>
-							<Descriptions.Item label="Origin Type">
-								{origin.type}
-							</Descriptions.Item>
-						</Descriptions>
-					</Card>
+					<Row gutter={[8, 8]}>
+						<Col lg={8} md={8} sm={12} xs={24}>
+							<div className="card-area">
+								<h3 className="head">Name</h3>
+								<p className="text">{name}</p>
+							</div>
+						</Col>
+						<Col lg={8} md={8} sm={12} xs={24}>
+							<div className="card-area">
+								<h3 className="head">Species</h3>
+								<p className="text">{species}</p>
+							</div>
+						</Col>
+						<Col lg={8} md={8} sm={12} xs={24}>
+							<div className="card-area">
+								<h3 className="head">Status</h3>
+								<p className="text">{status}</p>
+							</div>
+						</Col>
+						<Col lg={8} md={8} sm={12} xs={24}>
+							<div className="card-area">
+								<h3 className="head">Gender</h3>
+								<p className="text">{gender}</p>
+							</div>
+						</Col>
+						<Col lg={8} md={8} sm={12} xs={24}>
+							<div className="card-area">
+								<h3 className="head">Origin</h3>
+								<p className="text">{origin.name}</p>
+							</div>
+						</Col>
+						<Col lg={8} md={8} sm={12} xs={24}>
+							<div className="card-area">
+								<h3 className="head">Origin Type</h3>
+								<p className="text">
+									{origin.type || "Unknown"}
+								</p>
+							</div>
+						</Col>
+					</Row>
 				</Col>
 			</Row>
 		</div>
