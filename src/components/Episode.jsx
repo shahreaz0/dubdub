@@ -1,7 +1,7 @@
 import React from "react";
 import { useQuery, gql } from "@apollo/client";
 import { Link } from "react-router-dom";
-import { Row, Col, Card, Image, Descriptions, Divider, Avatar } from "antd";
+import { Row, Col, Card, Divider, Avatar } from "antd";
 const { Meta } = Card;
 import "./Episode.css";
 
