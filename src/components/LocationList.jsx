@@ -33,7 +33,7 @@ const episodeList = (props) => {
 	const { results } = data.locations;
 	const cards = results.map((card, key) => (
 		<Col xs={24} sm={8} lg={6} key={key}>
-			<Link to={`/location/${card.id}`}>
+			<Link to={`/locations/${card.id}`}>
 				<Card hoverable>
 					<Meta title={card.name} description={card.type} />
 				</Card>

@@ -33,7 +33,7 @@ const CharacterList = (props) => {
 	const { results } = data.characters;
 	const cards = results.map((card, key) => (
 		<Col xs={24} sm={8} lg={6} key={key}>
-			<Link to={`/character/${card.id}`}>
+			<Link to={`/characters/${card.id}`}>
 				<Card
 					loading={loading}
 					hoverable
