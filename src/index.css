@@ -27,11 +27,12 @@ code {
 }
 
 .cards {
-  height: 84vh;
+  height: 82vh;
   overflow: scroll;
   overflow-x: hidden;
   display: flex;
   align-content: flex-start;
+  padding: 0.5rem 0;
 }
 
 /* Loader Spinner */

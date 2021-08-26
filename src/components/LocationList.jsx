@@ -1,8 +1,46 @@
 import React from "react";
+import { useQuery, gql } from "@apollo/client";
+import { Link } from "react-router-dom";
 import { Row, Col, Card } from "antd";
 const { Meta } = Card;
 
+const ALL_LOCATIONS = gql`
+	{
+		locations {
+			results {
+				name
+				type
+				id
+			}
+		}
+	}
+`;
+
 const episodeList = (props) => {
+	const { loading, error, data } = useQuery(ALL_LOCATIONS);
+
+	if (loading)
+		return (
+			<div className="loader">
+				<div className="lds-ripple">
+					<div></div>
+					<div></div>
+				</div>
+			</div>
+		);
+	if (error) return <p>Error :(</p>;
+
+	const { results } = data.locations;
+	const cards = results.map((card, key) => (
+		<Col xs={24} sm={8} lg={6} key={key}>
+			<Link to={`/location/${card.id}`}>
+				<Card hoverable>
+					<Meta title={card.name} description={card.type} />
+				</Card>
+			</Link>
+		</Col>
+	));
+
 	return (
 		<div className="m-lg">
 			<Row gutter={[24, 16]}>
@@ -12,35 +50,7 @@ const episodeList = (props) => {
 
 				<Col xs={24} md={18} lg={18}>
 					<Row gutter={[24, 16]} className="cards">
-						<Col xs={24} sm={8} lg={6}>
-							<Card hoverable>
-								<Meta
-									title="Earth (C-137)"
-									description="Planet"
-								/>
-							</Card>
-						</Col>
-						<Col xs={24} sm={8} lg={6}>
-							<Card hoverable>
-								<Meta title="Abadango" description="Cluster" />
-							</Card>
-						</Col>
-						<Col xs={24} sm={8} lg={6}>
-							<Card hoverable>
-								<Meta
-									title="citadel of Ricks"
-									description="Space station"
-								/>
-							</Card>
-						</Col>
-						<Col xs={24} sm={8} lg={6}>
-							<Card hoverable>
-								<Meta
-									title="Worldender's lair"
-									description="Planet"
-								/>
-							</Card>
-						</Col>
+						{cards}
 					</Row>
 				</Col>
 			</Row>

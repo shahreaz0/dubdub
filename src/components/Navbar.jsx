@@ -1,5 +1,5 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import { NavLink } from "react-router-dom";
 import { Menu, Layout } from "antd";
 
 const { Header } = Layout;
@@ -8,17 +8,17 @@ import "./Navbar.css";
 
 const Navbar = (props) => {
 	return (
-		<Layout>
+		<Layout className="layout">
 			<Header style={{ position: "fixed", zIndex: 1, width: "100%" }}>
-				<Menu mode="horizontal">
-					<Menu.Item key="one">
-						<Link to="/episodes">Episodes</Link>
+				<Menu mode="horizontal" defaultSelectedKeys={["episodes"]}>
+					<Menu.Item key="episodes">
+						<NavLink to="/episodes">Episodes</NavLink>
 					</Menu.Item>
-					<Menu.Item key="two">
-						<Link to="/characters">Characters</Link>
+					<Menu.Item key="characters">
+						<NavLink to="/characters">Characters</NavLink>
 					</Menu.Item>
-					<Menu.Item key="three">
-						<Link to="/locations">Location</Link>
+					<Menu.Item key="locations">
+						<NavLink to="/locations">Location</NavLink>
 					</Menu.Item>
 				</Menu>
 			</Header>
