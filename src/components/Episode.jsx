@@ -8,6 +8,7 @@ import "./Episode.css";
 const Episode = (props) => {
 	const { id } = props.match.params;
 
+	// gql query
 	const CHARACTER = gql`
 		{
 			episode(id: "${id}") {
@@ -23,9 +24,10 @@ const Episode = (props) => {
 		}
 	`;
 
+	// hook
 	const { loading, error, data } = useQuery(CHARACTER);
 
-	if (loading)
+	if (loading) {
 		return (
 			<div className="loader">
 				<div className="lds-ripple">
@@ -34,11 +36,12 @@ const Episode = (props) => {
 				</div>
 			</div>
 		);
+	}
 
 	if (error) {
 		return (
 			<div className="loader">
-				<p className="error">Error happen. Try Again.</p>
+				<p className="error">Error happened. Try Again.</p>
 			</div>
 		);
 	}

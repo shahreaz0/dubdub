@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { Row, Col, Card } from "antd";
 const { Meta } = Card;
 
+// gql query
 const ALL_LOCATIONS = gql`
 	{
 		locations {
@@ -16,10 +17,11 @@ const ALL_LOCATIONS = gql`
 	}
 `;
 
-const episodeList = (props) => {
+const episodeList = () => {
+	// hook
 	const { loading, error, data } = useQuery(ALL_LOCATIONS);
 
-	if (loading)
+	if (loading) {
 		return (
 			<div className="loader">
 				<div className="lds-ripple">
@@ -28,11 +30,12 @@ const episodeList = (props) => {
 				</div>
 			</div>
 		);
+	}
 
 	if (error) {
 		return (
 			<div className="loader">
-				<p className="error">Error happen. Try Again.</p>
+				<p className="error">Error happened. Try Again.</p>
 			</div>
 		);
 	}

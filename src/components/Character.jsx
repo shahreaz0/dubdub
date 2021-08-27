@@ -6,6 +6,7 @@ import "./Character.css";
 const Character = (props) => {
 	const { id } = props.match.params;
 
+	// gql query
 	const CHARACTER = gql`
 		{
 			character(id: "${id}") {
@@ -23,9 +24,10 @@ const Character = (props) => {
 		}
 	`;
 
+	// hook
 	const { loading, error, data } = useQuery(CHARACTER);
 
-	if (loading)
+	if (loading) {
 		return (
 			<div className="loader">
 				<div className="lds-ripple">
@@ -34,6 +36,7 @@ const Character = (props) => {
 				</div>
 			</div>
 		);
+	}
 
 	if (error) {
 		return (

@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import { NavLink } from "react-router-dom";
 import { Menu, Layout } from "antd";
 const { Header } = Layout;
 import "./Navbar.css";
 
-const Navbar = (props) => {
+const Navbar = () => {
 	return (
 		<Layout className="layout">
 			<Header style={{ position: "fixed", zIndex: 1, width: "100%" }}>
@@ -19,7 +19,7 @@ const Navbar = (props) => {
 						<NavLink to="/episodes">Episodes</NavLink>
 					</Menu.Item>
 					<Menu.Item key="locations">
-						<NavLink to="/locations">Location</NavLink>
+						<NavLink to="/locations">Locations</NavLink>
 					</Menu.Item>
 				</Menu>
 			</Header>

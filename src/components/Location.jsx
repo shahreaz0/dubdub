@@ -3,9 +3,10 @@ import { Link } from "react-router-dom";
 import { useQuery, gql } from "@apollo/client";
 import { Row, Col, Card, Divider, Avatar } from "antd";
 const { Meta } = Card;
+
 const Location = (props) => {
 	const { id } = props.match.params;
-
+	// gql query
 	const LOCATION = gql`
 		{
 			location(id: "${id}") {
@@ -21,9 +22,10 @@ const Location = (props) => {
 		}
 	`;
 
+	// hook
 	const { loading, error, data } = useQuery(LOCATION);
 
-	if (loading)
+	if (loading) {
 		return (
 			<div className="loader">
 				<div className="lds-ripple">
@@ -32,11 +34,12 @@ const Location = (props) => {
 				</div>
 			</div>
 		);
+	}
 
 	if (error) {
 		return (
 			<div className="loader">
-				<p className="error">Error happen. Try Again.</p>
+				<p className="error">Error happened. Try Again.</p>
 			</div>
 		);
 	}

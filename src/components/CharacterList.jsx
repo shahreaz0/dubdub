@@ -4,6 +4,7 @@ import { Row, Col, Card } from "antd";
 import { Link } from "react-router-dom";
 const { Meta } = Card;
 
+// gql query
 const ALL_CHARACTERS = gql`
 	{
 		characters {
@@ -16,10 +17,11 @@ const ALL_CHARACTERS = gql`
 	}
 `;
 
-const CharacterList = (props) => {
+const CharacterList = () => {
+	// hook
 	const { loading, error, data } = useQuery(ALL_CHARACTERS);
 
-	if (loading)
+	if (loading) {
 		return (
 			<div className="loader">
 				<div className="lds-ripple">
@@ -28,11 +30,12 @@ const CharacterList = (props) => {
 				</div>
 			</div>
 		);
+	}
 
 	if (error) {
 		return (
 			<div className="loader">
-				<p className="error">Error happen. Try Again.</p>
+				<p className="error">Error happened. Try Again.</p>
 			</div>
 		);
 	}
@@ -42,7 +45,6 @@ const CharacterList = (props) => {
 		<Col xs={24} sm={8} lg={6} key={key}>
 			<Link to={`/characters/${card.id}`}>
 				<Card
-					loading={loading}
 					hoverable
 					cover={<img alt={card.name} src={card.image} />}
 				>
