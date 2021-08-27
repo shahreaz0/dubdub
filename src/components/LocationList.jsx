@@ -28,7 +28,14 @@ const episodeList = (props) => {
 				</div>
 			</div>
 		);
-	if (error) return <p>Error :(</p>;
+
+	if (error) {
+		return (
+			<div className="loader">
+				<p className="error">Error happen. Try Again.</p>
+			</div>
+		);
+	}
 
 	const { results } = data.locations;
 	const cards = results.map((card, key) => (

@@ -71,6 +71,13 @@ code {
   color: #555;
 }
 
+.error {
+  color: tomato;
+  font-family: "Barlow Semi Condensed", sans-serif;
+  text-transform: uppercase;
+  font-size: 1.5rem;
+}
+
 /* Loader Spinner */
 .loader {
   width: 100vw;
@@ -96,6 +103,7 @@ code {
 .lds-ripple div:nth-child(2) {
   animation-delay: -0.5s;
 }
+
 @keyframes lds-ripple {
   0% {
     top: 36px;

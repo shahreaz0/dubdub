@@ -3,6 +3,7 @@ import { Switch, Route } from "react-router-dom";
 import "./App.css";
 
 //components
+import Home from "./components/Home";
 import Navbar from "./components/Navbar";
 import CharacterList from "./components/CharacterList";
 import Character from "./components/Character";
@@ -16,7 +17,7 @@ const App = () => {
     <div className="App">
       <Navbar />
       <Switch>
-        <Route exact path="/" />
+        <Route exact path="/" component={Home} />
         <Route exact path="/characters" component={CharacterList} />
         <Route exact path="/characters/:id" component={Character} />
         <Route exact path="/episodes" component={EpisodeList} />

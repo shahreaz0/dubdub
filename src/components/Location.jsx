@@ -32,7 +32,14 @@ const Location = (props) => {
 				</div>
 			</div>
 		);
-	if (error) return <p>Error :(</p>;
+
+	if (error) {
+		return (
+			<div className="loader">
+				<p className="error">Error happen. Try Again.</p>
+			</div>
+		);
+	}
 
 	const { name, type, dimension, residents } = data.location;
 

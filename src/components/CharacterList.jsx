@@ -28,12 +28,14 @@ const CharacterList = (props) => {
 				</div>
 			</div>
 		);
-	if (error)
+
+	if (error) {
 		return (
 			<div className="loader">
-				<p>Error happen. Try Again.</p>
+				<p className="error">Error happen. Try Again.</p>
 			</div>
 		);
+	}
 
 	const { results } = data.characters;
 	const cards = results.map((card, key) => (

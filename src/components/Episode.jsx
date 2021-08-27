@@ -34,7 +34,14 @@ const Episode = (props) => {
 				</div>
 			</div>
 		);
-	if (error) return <p>Error :(</p>;
+
+	if (error) {
+		return (
+			<div className="loader">
+				<p className="error">Error happen. Try Again.</p>
+			</div>
+		);
+	}
 
 	const { name, air_date, episode, characters } = data.episode;
 	const characterCard = characters.map((character, key) => (
