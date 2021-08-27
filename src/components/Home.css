@@ -33,6 +33,10 @@
 	font-weight: 400;
 }
 
+.home-text .morty {
+	color: #e7db65 !important;
+}
+
 @media only screen and (max-width: 769px) {
 	.home-text p {
 		font-size: 80px;
