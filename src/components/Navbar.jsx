@@ -12,11 +12,11 @@ const Navbar = (props) => {
 					<Menu.Item key="home">
 						<NavLink to="/">Home</NavLink>
 					</Menu.Item>
-					<Menu.Item key="episodes">
-						<NavLink to="/episodes">Episodes</NavLink>
-					</Menu.Item>
 					<Menu.Item key="characters">
 						<NavLink to="/characters">Characters</NavLink>
+					</Menu.Item>
+					<Menu.Item key="episodes">
+						<NavLink to="/episodes">Episodes</NavLink>
 					</Menu.Item>
 					<Menu.Item key="locations">
 						<NavLink to="/locations">Location</NavLink>
